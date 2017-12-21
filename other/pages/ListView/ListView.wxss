@@ -1,0 +1,8 @@
+@import '../../utils/refreshView.wxss';
+
+.item-style{  
+  padding: 30rpx;  
+  font-size: 40rpx;  
+  text-align: center;  
+  border-top: 2rpx solid #eee;  
+}  

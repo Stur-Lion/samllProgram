@@ -1,0 +1,178 @@
+<!--index.wxml-->
+<view class="grayBac">
+    <!--<view class="topWhiteInformation" >
+        <view wx:for="{{lists}}" wx:for-item="list" wx:key="{{list.name}}" class="detail">
+            <text class="log-item grayColor">{{list.name}} : </text>
+            <text class="log-item" decode="{{true}}">
+                &nbsp;&nbsp;&nbsp;{{list.num}}  &nbsp;{{list.danwei}}
+            </text>
+        </view>
+    </view>-->
+    <scroll-view class="detailList" scroll-y = true bindscrolltolower="loadMore" bindscrolltoupper="refesh">
+        <view class="detailEveryOne">
+            <view class="detailTitle">
+                <image class="oilImg" style="background-image:url({{oillogo}})"></image>
+                软件园福安南一路分站
+            </view>
+            <view class="datailCon">
+                <view>
+                    <text class="conLeft">时间1</text>
+                    <text class="conRight">2017-12-12</text>
+                </view>
+                <view>
+                    <text class="conLeft">油枪</text>
+                    <text class="conRight">#90</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠信息</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">加油金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">实付金额</text>
+                    <text class="conRight">100</text>
+                </view>
+            </view>
+            <image class="fixCustomerLogo" style="background-image:url({{customerlogo}})"></image>
+        </view>
+        <view class="detailEveryOne">
+            <view class="detailTitle">
+                <image class="oilImg" style="background-image:url({{oillogo}})"></image>
+                软件园福安南一路分站
+            </view>
+            <view class="datailCon">
+                <view>
+                    <text class="conLeft">时间</text>
+                    <text class="conRight">2017-12-12</text>
+                </view>
+                <view>
+                    <text class="conLeft">油枪</text>
+                    <text class="conRight">#90</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠信息</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">加油金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">实付金额</text>
+                    <text class="conRight">100</text>
+                </view>
+            </view>
+            <image class="fixCustomerLogo" style="background-image:url({{customerlogo}})"></image>
+        </view>
+        <view class="detailEveryOne">
+            <view class="detailTitle">
+                <image class="oilImg" style="background-image:url({{oillogo}})"></image>
+                软件园福安南一路分站
+            </view>
+            <view class="datailCon">
+                <view>
+                    <text class="conLeft">时间</text>
+                    <text class="conRight">2017-12-12</text>
+                </view>
+                <view>
+                    <text class="conLeft">油枪</text>
+                    <text class="conRight">#90</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠信息</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">加油金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">实付金额</text>
+                    <text class="conRight">100</text>
+                </view>
+            </view>
+            <image class="fixCustomerLogo" style="background-image:url({{customerlogo}})"></image>
+        </view>
+        <view class="detailEveryOne">
+            <view class="detailTitle">
+                <image class="oilImg" style="background-image:url({{oillogo}})"></image>
+                软件园福安南一路分站
+            </view>
+            <view class="datailCon">
+                <view>
+                    <text class="conLeft">时间</text>
+                    <text class="conRight">2017-12-12</text>
+                </view>
+                <view>
+                    <text class="conLeft">油枪</text>
+                    <text class="conRight">#90</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠信息</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">加油金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">实付金额</text>
+                    <text class="conRight">100</text>
+                </view>
+            </view>
+            <image class="fixCustomerLogo" style="background-image:url({{customerlogo}})"></image>
+        </view>
+        <view class="detailEveryOne">
+            <view class="detailTitle">
+                <image class="oilImg" style="background-image:url({{oillogo}})"></image>
+                软件园福安南一路分站
+            </view>
+            <view class="datailCon">
+                <view>
+                    <text class="conLeft">时间</text>
+                    <text class="conRight">2017-12-12</text>
+                </view>
+                <view>
+                    <text class="conLeft">油枪</text>
+                    <text class="conRight">#90</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠信息</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">加油金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">优惠金额</text>
+                    <text class="conRight">0.5</text>
+                </view>
+                <view>
+                    <text class="conLeft">实付金额</text>
+                    <text class="conRight">100</text>
+                </view>
+            </view>
+            <image class="fixCustomerLogo" style="background-image:url({{customerlogo}})"></image>
+        </view>
+    </scroll-view>
+</view>

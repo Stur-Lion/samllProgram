@@ -1,0 +1,74 @@
+page{
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.topWhiteInformation{
+  width: 100%;
+  background-color: #fff;
+  color: black;
+  padding: 0 0 10px 0;
+}
+.detail{
+  width: 50%;
+  display: inline-block;
+  font-size: 12px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+.detail .log-item{
+  display: inline-block;
+}
+.grayColor{
+  color: #848484;
+}
+.detailList{
+  padding: 10px 10px 0 10px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+.detailEveryOne{
+  display: block;
+  background-color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 5px;
+  position: relative;
+  margin-bottom: 15rpx;
+}
+.detailTitle{
+  border-bottom: 1px dashed #e7e7e7;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 5px;
+}
+.oilImg{
+    display: inline-block;
+    width: 45rpx;
+    height: 45rpx;
+    background-size: 45rpx 45rpx;
+    vertical-align: middle;
+}
+.datailCon{
+  background-color: #fff;
+  color: #848484;
+  padding: 10px 35px 10px 35px;
+}
+.datailCon>view{
+  line-height: 25px;
+}
+.conLeft{
+  width: 80px;
+  display: inline-block;
+}
+.conRight{
+  float: right;
+  text-align: right;
+}
+.fixCustomerLogo{
+  position: absolute;
+  top: 0;
+  right: 30rpx;
+  width: 90rpx;
+  height: 70rpx;
+  background-size: 90rpx 70rpx;
+}

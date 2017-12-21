@@ -1,0 +1,16 @@
+.container{
+  font-size: 32rpx;
+}
+.weui-cell_input{
+  
+}
+.bottomLink{
+  position: fixed;
+  bottom: 40rpx;
+  font-size: 28rpx;
+}
+.verfitioncode{
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}

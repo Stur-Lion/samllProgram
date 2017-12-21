@@ -1,0 +1,5 @@
+.bottomLink{
+  position: fixed;
+  bottom: 40rpx;
+  font-size: 28rpx;
+}

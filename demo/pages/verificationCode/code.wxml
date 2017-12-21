@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <!--<view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入验证码"/>
+        </view>
+        <view class="weui-cell__hd">
+            <view class="weui-label verfitioncode">获取验证码</view>
+        </view>
+    </view>-->
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入手机号" value='{{tel}}' disabled='true' />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">验证码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入验证码" />
+      </view>
+      <view class="weui-cell__ft">
+        <view class="weui-vcode-btn" bindtap='getverfitionCodeAgain' disabled="{{nocanTap}}">获取验证码</view>
+      </view>
+    </view>
+  </view>
+
+  <button class="weui-btn ajaxbutton" type="primary" bindtap="bottonNext">提交验证码</button>
+
+  <navigator url="../binding/binding" class="weui-agree__link bottomLink">重新绑定手机号></navigator>
+</view>

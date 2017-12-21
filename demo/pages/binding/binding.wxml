@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd" style="width: 105px">
+                <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
+                    <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+                </picker>
+            </view>
+            <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                <input class="weui-input" placeholder="请输入号码" data-input_type="telephone" bindinput="usertel" />
+            </view>
+        </view>
+    </view>
+    <button class="weui-btn ajaxbutton" type="primary" bindtap="bindTel">绑定手机号</button>
+    <view class="bottomLink">
+        阅读并同意<navigator url="../binding/binding" class="weui-agree__link">《相关条款》</navigator>
+    </view>
+</view>

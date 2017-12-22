@@ -13,7 +13,8 @@ Page({
   },
   data: {
     tel:'',
-    nocanTap: true
+    nocanTap: true,
+    timeNum:'获取验证码'
   },
   bottonNext: function () {
     wx.navigateTo({
@@ -21,7 +22,32 @@ Page({
     })
   },
   getverfitionCodeAgain: function(e){
-    console.log(e)
-    
+    var that = this;
+    if(this.data.timeNum=='获取验证码'){
+      that.setData({
+        timeNum:60
+      })
+      function countDown(time) {
+        setTimeout(function () {
+          that.setData({
+            timeNum:--time
+          })
+          if(time<=0){
+            that.setData({
+              timeNum:'获取验证码'
+            })
+          }else{
+            countDown(time)
+          }
+        },1000)
+      }
+      countDown(60)
+    }else{
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '发送短信过于频繁，请稍后再试'
+      })
+    }
   }
 })

@@ -8,7 +8,7 @@
                 </picker>
             </view>
             <view class="weui-cell__bd weui-cell__bd_in-select-before">
-                <input class="weui-input" placeholder="请输入号码" data-input_type="telephone" bindinput="usertel" />
+                <input class="weui-input" placeholder="请输入号码" data-input_type="telephone" bindinput="usertel" value="{{usertelephone}}"/>
             </view>
         </view>
     </view>

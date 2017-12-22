@@ -1,16 +1,14 @@
 {
   "pages":[
-    "pages/refueHistory/refue",
     "pages/binding/binding",
     "pages/verificationCode/code",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/refueHistory/refue",
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"black",
     "navigationBarBackgroundColor": "#eee",
     "navigationBarTitleText": "油惠宝",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": "true"
+    "navigationBarTextStyle": "black"
   }
 }

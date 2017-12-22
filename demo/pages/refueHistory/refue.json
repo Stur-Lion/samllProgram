@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"black",
+  "navigationBarBackgroundColor": "#eee",
+  "navigationBarTitleText": "加油历史",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": "true"
+}

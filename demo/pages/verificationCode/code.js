@@ -14,7 +14,8 @@ Page({
   data: {
     tel:'',
     nocanTap: true,
-    timeNum:'获取验证码'
+    timeNum:'获取验证码',
+    char_lt: '<'
   },
   bottonNext: function () {
     wx.navigateTo({

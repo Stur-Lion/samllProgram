@@ -32,5 +32,5 @@
 
   <button class="weui-btn ajaxbutton" type="primary" bindtap="bottonNext">提交验证码</button>
 
-  <navigator url="../binding/binding" class="weui-agree__link bottomLink">重新绑定手机号></navigator>
+  <navigator url="../binding/binding" class="weui-agree__link bottomLink">{{char_lt}} 重新绑定手机号 </navigator>
 </view>

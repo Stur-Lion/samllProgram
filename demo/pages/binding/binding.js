@@ -24,7 +24,7 @@ Page({
               //3.解密用户信息 获取unionId
               wx.request({
                 url: 'http://yangcong-vip.s1.natapp.cc/app/get/userInfo',//自己的服务接口地址
-                method: 'post',
+                method: 'get',
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'
                 },

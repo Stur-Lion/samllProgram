@@ -1,0 +1,9 @@
+
+<view class="container">
+    <p class="title">平台信息</p>
+    <p class="con">
+        油慧宝是一家互联网能源消费解决方案的提供商，通过明确的商业模式签约连结包括石油石化等国资国营外资跨境以及民资联营等油企巨头。
+    </p>
+    <image id="qrcode" style="background-image:url({{qrCodeurl}})"></image>
+    <p>更多优惠请扫码关注公众号</p>
+</view>

@@ -22,7 +22,7 @@
         <view class="weui-label">验证码</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入验证码" />
+        <input class="weui-input" placeholder="请输入验证码" value="{{verCode}}" bindinput="getVercode" />
       </view>
       <view class="weui-cell__ft">
         <view class="weui-vcode-btn" bindtap='getverfitionCodeAgain' disabled="{{nocanTap}}">{{timeNum=='获取验证码'?timeNum:timeNum+'秒后重试'}}</view>

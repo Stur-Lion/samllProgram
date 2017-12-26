@@ -15,12 +15,24 @@ Page({
     tel:'',
     nocanTap: true,
     timeNum:'获取验证码',
-    char_lt: '<'
+    char_lt: '<',
+    verCode: ''
+  },
+  getVercode:function (e) {
+    this.setData({
+      verCode: e.detail.value
+    })
   },
   bottonNext: function () {
-    wx.navigateTo({
-      url: '../refueHistory/refue'
-    })
+    if(this.data.verCode==''){
+      wx.navigateTo({
+        url: '../qrCode/qrCode'
+      })
+    }else{
+      wx.navigateTo({
+        url: '../refueHistory/refue'
+      })
+    }
   },
   getverfitionCodeAgain: function(e){
     var that = this;

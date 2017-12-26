@@ -71,6 +71,6 @@ Page({
     },2000)
   },
   onReachBottom:function () {
-
+    console.log(1);
   },
 })

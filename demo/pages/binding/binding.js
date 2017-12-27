@@ -11,6 +11,7 @@ Page({
     usertelephone: '13200136698'
   },
   onLoad:function () {
+    return
     wx.login({
       success: function (r) {
         console.log(r);
@@ -24,13 +25,14 @@ Page({
               //3.解密用户信息 获取unionId
               wx.request({
                 url: 'http://yangcong-vip.s1.natapp.cc/app/get/userInfo',//自己的服务接口地址
-                method: 'get',
+                method: 'post',
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'
                 },
                 data: {encryptedData: res.encryptedData, iv: res.iv, code: code},
                 success: function (data) {
                   console.log(data);
+                  return
 
                   //4.解密成功后 获取自己服务器返回的结果
                   if (data.data.status == 1) {

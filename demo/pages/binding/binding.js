@@ -8,7 +8,7 @@ Page({
   data: {
     countryCodes: ["+86", "+80", "+84", "+87"],
     countryCodeIndex: 0,
-    usertelephone: '15623544530'
+    usertelephone: ''
   },
   onLoad:function () {
     var that  =this;

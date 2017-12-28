@@ -43,7 +43,7 @@ Page({
     nocanTap: true,
     timeNum:'获取验证码',
     char_lt: '<',
-    verCode: '123123',
+    verCode: '',
     code: '',
     encryptedData: '',
     iv: ''

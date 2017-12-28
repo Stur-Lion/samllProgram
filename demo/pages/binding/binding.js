@@ -28,8 +28,7 @@ Page({
                 success: function (data) {
                   console.log(data);
                   var res = common.changeData(data.data)
-                  console.log(res);
-                  if(res.retcode==0){  //解析失败 跳二维码页面，
+                  if(res.retcode==0){  // 解析失败 跳二维码页面，
                     toQrCode()
                   }else if(res.retcode==1){ //已经绑定且为油站员工或者油站管理员，跳加油历史
                     var gas_station_id = res.data.gas_station_id.join(',');
@@ -53,6 +52,8 @@ Page({
                   }
                 },
                 fail: function () {
+                  that.hideloading()
+                  that.openToast('系统错误')
                   console.log('系统错误')
                 }
               })

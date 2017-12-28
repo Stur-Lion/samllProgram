@@ -129,11 +129,7 @@ Page({
               success: function (res) {
                 console.log(res);
                 if(res.data.retcode==1){
-                  var gas_station_id = res.data.gas_station_id.join(',');
-                  console.log(gas_station_id);
-                  wx.navigateTo({
-                    url: '../refueHistory/refue?gas_station_id='+gas_station_id
-                  })
+
                 }else{
                   that.openToast(res.data.info[0])
                 }

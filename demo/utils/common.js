@@ -13,4 +13,9 @@ common.validFrom = function (type,value,notice){
     }
   }
 }
+common.url = 'http://yangcong-vip.s1.natapp.cc';
+common.changeData = function (data) {
+  return JSON.parse(data.replace(new RegExp('\ufeff', 'ig'), ''))
+}
+
 module.exports = common;

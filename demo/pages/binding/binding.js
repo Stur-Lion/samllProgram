@@ -8,40 +8,49 @@ Page({
   data: {
     countryCodes: ["+86", "+80", "+84", "+87"],
     countryCodeIndex: 0,
-    usertelephone: '13200136698'
+    usertelephone: '15623544530'
   },
   onLoad:function () {
-    return
+    var that  =this;
     wx.login({
       success: function (r) {
-        console.log(r);
+        that.showloading()
         var code = r.code;//登录凭证
         if (code) {
           //2、调用获取用户信息接口
           wx.getUserInfo({
             success: function (res) {
-              console.log(res);
-              console.log({encryptedData: res.encryptedData, iv: res.iv, code: code})
               //3.解密用户信息 获取unionId
               wx.request({
-                url: 'http://yangcong-vip.s1.natapp.cc/app/get/userInfo',//自己的服务接口地址
-                method: 'post',
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded'
-                },
+                url: common.url+'/app/get/userInfo',//自己的服务接口地址
+                method: 'POST',
                 data: {encryptedData: res.encryptedData, iv: res.iv, code: code},
                 success: function (data) {
                   console.log(data);
-                  return
-
-                  //4.解密成功后 获取自己服务器返回的结果
-                  if (data.data.status == 1) {
-                    var userInfo_ = data.data.userInfo;
-                    console.log(userInfo_)
-                  } else {
-                    console.log('解密失败')
+                  var res = common.changeData(data.data)
+                  console.log(res);
+                  if(res.retcode==0){  //解析失败 跳二维码页面，
+                    toQrCode()
+                  }else if(res.retcode==1){ //已经绑定且为油站员工或者油站管理员，跳加油历史
+                    var gas_station_id = res.data.gas_station_id.join(',');
+                    console.log(gas_station_id);
+                    wx.navigateTo({
+                      url: '../refueHistory/refue?gas_station_id='+gas_station_id
+                    })
+                  }else if(res.retcode==2){ //已经绑定但不是油站员工或者油站管理员，跳二维码
+                    toQrCode()
+                  }else if(res.retcode==3){ //未发生绑定 跳填写手机页面
+                    //在当前页面继续操作
+                    that.hideloading()
+                  }else{ //其余异常 跳二维码
+                    toQrCode()
                   }
-
+                  that.hideloading()
+                  function toQrCode() {
+                    wx.navigateTo({
+                      url: '../qrCode/qrCode'
+                    })
+                  }
                 },
                 fail: function () {
                   console.log('系统错误')
@@ -58,7 +67,7 @@ Page({
         }
       },
       fail: function () {
-        callback(false)
+        console.log('获取信息失败')
       }
     })
   },
@@ -71,8 +80,30 @@ Page({
     if(common.validFrom('telephone',this.data.usertelephone,'')=='true'){
       this.openToast('请输入正确手机号','info')
     }else{
-      wx.navigateTo({
-        url: '../verificationCode/code?tel=' + this.data.usertelephone
+      var usertelephone = this.data.usertelephone,that = this;
+      wx.request({
+        url: common.url+'/app/identity/status',
+        method: 'POST',
+        data: {phone:usertelephone},
+        success: function (result) {
+          var res = common.changeData(result.data)
+          if(res.retcode==1){
+            if(res.data.isStationEmployee){ //绑定手机
+              wx.navigateTo({
+                url: '../verificationCode/code?tel='+usertelephone
+              })
+            }else{ //二维码
+              wx.navigateTo({
+                url: '../qrCode/qrCode'
+              })
+            }
+          }else{
+            that.openToast('获取信息失败','info')
+          }
+        },
+        fail: function () {
+          console.log('系统错误')
+        }
       })
     }
   },
@@ -85,10 +116,19 @@ Page({
     wx.showModal({
       title: '提示',
       showCancel: false,
-      content: '手机号输入不合法',
+      content: notice,
       success: function (res) {
         console.log(res)
       }
     })
   },
+  showloading: function () {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+  },
+  hideloading: function () {
+    wx.hideLoading()
+  }
 })

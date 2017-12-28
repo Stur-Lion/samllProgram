@@ -2,58 +2,52 @@
 //获取应用实例
 const app = getApp()
 
+var common = require("../../utils/common.js");
+
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-    goMyview: function () {
-        wx.navigateTo({
-            url: '../binding/binding'
-        })
-    },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+  onLoad:function () {
+    wx.login({
+      success: function (r) {
+        console.log(r);
+        var code = r.code;//登录凭证
+        if (code) {
+          //2、调用获取用户信息接口
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res);
+              console.log({encryptedData: res.encryptedData, iv: res.iv, code: code})
+              //3.解密用户信息 获取unionId
+              wx.request({
+                url: 'http://yangcong-vip.s1.natapp.cc/app/get/userInfo',//自己的服务接口地址
+                method: 'POST',
+                data: {encryptedData: res.encryptedData, iv: res.iv, code: code},
+                success: function (data) {
+                  var res = JSON.parse(data.data.substr(2));
+                  console.log(res);
+                  console.log(res.retcode);
+                  if(res.retcode==1){
+                    console.log(1);
+                  }else{
+                    alert('获取信息失败')
+                  }
+                },
+                fail: function () {
+                  console.log('系统错误')
+                }
+              })
+            },
+            fail: function () {
+              console.log('获取用户信息失败')
+            }
           })
+
+        } else {
+          console.log('获取用户登录态失败！' + r.errMsg)
         }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      },
+      fail: function () {
+        alert('获取信息失败')
+      }
     })
   }
 })

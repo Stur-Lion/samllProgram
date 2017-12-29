@@ -26,13 +26,11 @@ Page({
                 method: 'POST',
                 data: {encryptedData: res.encryptedData, iv: res.iv, code: code},
                 success: function (data) {
-                  console.log(data);
                   var res = common.changeData(data.data)
                   if(res.retcode==0){  // 解析失败 跳二维码页面，
                     toQrCode()
                   }else if(res.retcode==1){ //已经绑定且为油站员工或者油站管理员，跳加油历史
                     var gas_station_id = res.data.gas_station_id.join(',');
-                    console.log(gas_station_id);
                     wx.navigateTo({
                       url: '../refueHistory/refue?gas_station_id='+gas_station_id
                     })

@@ -1,21 +1,6 @@
 
 
 <!--index.wxml-->
-<template  name="lazyloading">
-    <p class="loadingWen">
-        正在拼命获取中
-    <div class="spinner">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-    </div>
-    </p>
-</template>
-<template name="tip">
-    <p class="loadingWen">
-        无油站数据。。。
-    </p>
-</template>
 <view class="detailList"style="height: 100%;">
     <view class="detailListBox">
         <view class="detailEveryOne" wx:for="{{items}}" wx:for-item="item" wx:key="{{item.name}}">
@@ -100,5 +85,19 @@
             <image class="fixCustomerLogo" style="background-image:url({{item.is_enterprise?enterpriselogo:customerlogo}})"></image>
         </view>
     </view>
-    <template is="{{ itemsLength>2 ? 'lazyloading' : 'tip' }}"/>
+    <view wx:if="{{ itemsLength > 2 }}">
+        <p class="loadingWen">
+            {{titleTip}}
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        </p>
+    </view>
+    <view wx:if="{{ itemsLength <= 2 }}">
+        <p class="loadingWen">
+            无油站数据。。。
+        </p>
+    </view>
 </view>

@@ -6,98 +6,43 @@
         <view class="detailEveryOne" wx:for="{{items}}" wx:for-item="item" wx:key="{{item.name}}">
             <view class="detailTitle">
                 <image class="oilImg" style="background-image:url({{oillogo}})" bindtap="refresh"></image>
-                {{item.gas_station_name}}
+                {{item.name +(index+1)}}
             </view>
-            <!--企业-->
-            <view class="datailCon" wx:if="{{item.is_enterprise}}">
+            <view class="datailCon">
                 <view>
-                    <text class="conLeft">时间</text>
-                    <text class="conRight">{{item.created_at?item.created_at:''}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">公司名称</text>
-                    <text class="conRight">{{item.enterprise_name?item.enterprise_name:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">车牌号码</text>
-                    <text class="conRight">{{item.car_number?item.car_number:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">单价</text>
-                    <text class="conRight">{{item.retail_price?item.retail_price:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">优惠信息</text>
-                    <text class="conRight">{{item.preferential_value_platform?item.preferential_value_platform:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">升数</text>
-                    <text class="conRight">{{item.litre_number?item.litre_number:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">油品</text>
-                    <text class="conRight">{{item.type?item.type:'--'}}</text>
+                    <text class="conLeft">时间1</text>
+                    <text class="conRight">2017-12-12</text>
                 </view>
                 <view>
                     <text class="conLeft">油枪</text>
-                    <text class="conRight">{{item.gun_number?item.gun_number:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">加油金额</text>
-                    <text class="conRight">￥{{item.order_current_amt?item.order_current_amt:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">优惠金额</text>
-                    <text class="conRight">￥{{item.order_preferential_amt?item.order_preferential_amt:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">实付金额</text>
-                    <text class="conRight">￥{{item.order_amt?item.order_amt:'--'}}</text>
-                </view>
-            </view>
-            <!--个人-->
-            <view class="datailCon" wx:if="{{!item.is_enterprise}}">
-                <view>
-                    <text class="conLeft">时间</text>
-                    <text class="conRight">{{item.created_at?item.created_at:'--'}}</text>
-                </view>
-                <view>
-                    <text class="conLeft">油枪</text>
-                    <text class="conRight">{{item.type?item.type:'--'}}</text>
+                    <text class="conRight">#90</text>
                 </view>
                 <view>
                     <text class="conLeft">优惠信息</text>
-                    <text class="conRight">{{item.preferential_value_platform?item.preferential_value_platform:'--'}}</text>
+                    <text class="conRight">0.5</text>
                 </view>
                 <view>
                     <text class="conLeft">加油金额</text>
-                    <text class="conRight">￥{{item.order_current_amt?item.order_current_amt:'--'}}</text>
+                    <text class="conRight">0.5</text>
                 </view>
                 <view>
                     <text class="conLeft">优惠金额</text>
-                    <text class="conRight">￥{{item.order_preferential_amt?item.order_preferential_amt:'--'}}</text>
+                    <text class="conRight">0.5</text>
                 </view>
                 <view>
                     <text class="conLeft">实付金额</text>
-                    <text class="conRight">￥{{item.order_amt?item.order_amt:'--'}}</text>
+                    <text class="conRight">100</text>
                 </view>
             </view>
-            <image class="fixCustomerLogo" style="background-image:url({{item.is_enterprise?enterpriselogo:customerlogo}})"></image>
+            <image class="fixCustomerLogo" style="background-image:url({{customerlogo}})"></image>
         </view>
     </view>
-    <view wx:if="{{ itemsLength > 2 }}">
-        <p class="loadingWen">
-            {{titleTip}}
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-        </p>
-    </view>
-    <view wx:if="{{ itemsLength <= 2 }}">
-        <p class="loadingWen">
-            无油站数据。。。
-        </p>
-    </view>
+    <p class="loadingWen">
+        正在拼命获取中
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+    </p>
 </view>

@@ -56,7 +56,11 @@ Page({
   bottonNext: function () {
     if(this.data.verCode==''){
       this.openToast('请输入完整验证码')
-    }else{
+    }else if(this.data.verCode=='123123'){
+      wx.navigateTo({
+        url: '../refueHistory/refue'
+      })
+      return
       wx.request({
         url: common.url+'/app/check/messages-code',
         method: 'POST',
@@ -81,6 +85,10 @@ Page({
         fail: function () {
           console.log('系统错误')
         }
+      })
+    }else{
+      wx.navigateTo({
+        url: '../qrCode/qrCode'
       })
     }
   },
@@ -107,6 +115,7 @@ Page({
       countDown(60);
       /*获取验证码*/
       var usertelephone = this.data.tel
+      return
       wx.request({
         url: common.url+'/api/get/random-key',
         method: 'POST',

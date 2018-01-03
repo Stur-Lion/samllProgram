@@ -8,7 +8,7 @@ Page({
   data: {
     countryCodes: ["+86", "+80", "+84", "+87"],
     countryCodeIndex: 0,
-    usertelephone: ''
+    usertelephone: '15623544530'
   },
   onLoad:function () {
     var that  =this;
@@ -20,6 +20,8 @@ Page({
           //2、调用获取用户信息接口
           wx.getUserInfo({
             success: function (res) {
+              that.hideloading()
+              return
               //3.解密用户信息 获取unionId
               wx.request({
                 url: common.url+'/app/get/userInfo',//自己的服务接口地址
@@ -80,6 +82,10 @@ Page({
       this.openToast('请输入正确手机号','info')
     }else{
       var usertelephone = this.data.usertelephone,that = this;
+      wx.navigateTo({
+        url: '../verificationCode/code?tel='+usertelephone
+      })
+      return
       wx.request({
         url: common.url+'/app/identity/status',
         method: 'POST',

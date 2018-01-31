@@ -1,21 +1,25 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
+  image{width: 100%;height: 100%;} 
+.container{width: 100%;height: 100%;color: white;background: lightblue;position: relative;}
+  .head{overflow: hidden;display: flex;}
+ .mainInfo{width: 50%;display: flex;}
+    .headPic{width: 128rpx;height: 128rpx;padding: 20rpx;}
+     .headpic{border-radius: 100%;border: solid 10rpx #fff;}
+    .grade{overflow: hidden;width: 100rpx;}
+     .start,.sun{line-height: 84rpx;height: 84rpx;}
+  .online{width: 50%;text-align:center;}
+  .onlinePerson,.onlineNum{float:right;width:198rpx;display: block;height: 84rpx;line-height: 84rpx;}
+.timer{text-align: center;}
+ .timerContainer{line-height:300rpx;font-size:3em;width: 300rpx;height: 300rpx;border: solid 10rpx #fff;margin: 0 auto;border-radius: 100%;}
+.idiom{width: 100%;height: 200rpx;}
+ .idiomContainer{position: relative;top:5rpx;left:5rpx;height: 200rpx;padding-top: 25rpx;}
+ .inShow{float: left;height: 100%;overflow: hidden;}
+ .list{height: 150rpx;width:200rpx;float: left;}
+  .list .name{width: 100%;overflow: hidden;}
+  .list input{border: solid 1px lightgoldenrodyellow;}
+ .connect{width:75rpx;float: left;}
+.maxHistory,.broken{text-align: center;}
+ .bottomBtn{overflow: hidden;position: absolute;bottom: 0;left: 0;width: 100%;}
+  .history,.ranking{width: 200rpx;text-align: center;}
+  .history{float:left;}
+  .ranking{float:right;} 

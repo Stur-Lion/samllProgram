@@ -1,4 +1,43 @@
-<!--index.wxml-->
-<view class="container">
-
-</view>
+<!-- index.wxml--> 
+ <view class="container" style="background:url('../index/image/bg.jpg') no-repeat;background-size:100% 100%;">
+  <view class='head'>
+   <view class='mainInfo'>
+    <view class='headPic'><image class='headpic' src="{{userInfo.avatarUrl}}"></image></view>
+    <view class='grade'><view class='start'>100</view><view class='sun'>50</view></view>
+   </view>
+   <view class='online'><text class="onlinePerson">在线人数</text><text class='onlineNum'>99999</text></view>
+ </view>
+ <view class='timer'>
+  <view class='timerContainer'>15</view>
+  <text>倒计时</text>
+ </view>
+ <view class='idiom'>
+  <view class='idiomContainer' animation="{{animationData}}" style="background:red;height:100rpx;width:600rpx">
+   <view class='inShow'>
+    <view class='list answered'>
+     <text class='name'>{{userInfo.nickName}}</text>
+     <input type='text' disabled='true' value='一往无前' />
+     <text class='numSt'>142</text>
+    </view>
+    <view class='connect'>~--~</view>
+   </view>
+   <view class='inShow'>
+    <view class='list now'>
+     <input type='text' value='前' maxlength='4' />
+     <text class='numSt'>143</text>
+    </view>
+    <view class='connect'>~--~</view>
+   </view>
+   <view wx:for="{{addNum}}" class='inShow' wx:key="i">
+    <view class='list future'><input disabled='true'/></view>
+    <view class='connect'>~--~</view>
+   </view>
+  </view>
+ </view>
+ <view class='maxHistory'>历史最长记录:<text>120</text></view>
+ <view class='broken'>已突破历史记录！</view>
+ <view class='bottomBtn'>
+ <button class='history'>历史</button>
+<button class='ranking' bindtap='slide'>排行</button>
+ </view>
+</view>  

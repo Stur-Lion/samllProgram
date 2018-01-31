@@ -1,53 +1,45 @@
 //index.js
 //获取应用实例
-const app = getApp()
-
-var common = require("../../utils/common.js");
 
 Page({
-  onLoad:function () {
-    wx.login({
-      success: function (r) {
-        console.log(r);
-        var code = r.code;//登录凭证
-        if (code) {
-          //2、调用获取用户信息接口
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res);
-              console.log({encryptedData: res.encryptedData, iv: res.iv, code: code})
-              //3.解密用户信息 获取unionId
-              wx.request({
-                url: 'http://yangcong-vip.s1.natapp.cc/app/get/userInfo',//自己的服务接口地址
-                method: 'POST',
-                data: {encryptedData: res.encryptedData, iv: res.iv, code: code},
-                success: function (data) {
-                  var res = JSON.parse(data.data.substr(2));
-                  console.log(res);
-                  console.log(res.retcode);
-                  if(res.retcode==1){
-                    console.log(1);
-                  }else{
-                    alert('获取信息失败')
-                  }
-                },
-                fail: function () {
-                  console.log('系统错误')
-                }
-              })
-            },
-            fail: function () {
-              console.log('获取用户信息失败')
-            }
-          })
-
-        } else {
-          console.log('获取用户登录态失败！' + r.errMsg)
-        }
-      },
-      fail: function () {
-        alert('获取信息失败')
-      }
+  data: {
+    /*userInfo:{},
+    nickName:{},
+    runLeft:0,
+    addNum:[1,1,1,1],*/
+    animationData:{}
+   },
+  //事件处理函数
+  bindViewTap: function() {
+  },
+  getUserInfo: function() {
+  },
+  onShow:function(){
+    console.log(1);
+    var animation=wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
     })
+    this.animation = animation
+    animation.left('30rpx').step()
+    this.setData({
+      animationData: animation.export()
+    })
+  },
+  slide:function() {
+    var _this = this.data;
+    var scrollWidths = parseInt(_this.scrollWidth);
+    var scrollLeft = this.data.animationData.actions[0].animates[0].args[1];
+    scrollLeft = scrollLeft - 275
+    var newNum = [1];
+    var totalNum = newNum.concat(_this.addNum);
+    this.animation.left(scrollLeft + "rpx").step()
+    this.setData({
+      scrollWidth: scrollWidths + 275 + "rpx",
+      addNum: totalNum,
+      //输出动画
+      animationData: this.animation.export()
+    })
+    console.log();
   }
 })

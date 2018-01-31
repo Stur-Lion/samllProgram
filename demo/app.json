@@ -3,8 +3,7 @@
     "pages/binding/binding",
     "pages/verificationCode/code",
     "pages/refueHistory/refue",
-    "pages/qrCode/qrCode",
-    "pages/index/index"
+    "pages/qrCode/qrCode"
   ],
   "window":{
     "backgroundTextStyle":"black",

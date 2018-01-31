@@ -1,0 +1,3 @@
+<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx" class="box"></view>
+
+<button class="weui-btn" type="primary" bindtap="moveClick" style="margin-top: 150px">动起来</button>

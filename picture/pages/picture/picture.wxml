@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <view>
+      <button type="primary" bindtap="getUserInfo"> 拍照 </button>
+      <button bindtap="downPicture"> 下载 </button>
+    </view>
+    <image src="{{tempFilePaths}}" style="width:{{ images.width }}px; height:{{ images.height }}px;"></image>
+    <view wx:if="{{images.height}}">
+      <text>原图大小：{{originalSize.width}} X {{originalSize.height}}</text>
+    </view>
+    <canvas style="width:{{ images.width }}px; height:{{ images.height }}px;" canvas-id="firstCanvas"></canvas>
+  </view>
+</view>

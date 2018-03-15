@@ -1,0 +1,7 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: black;
+} 

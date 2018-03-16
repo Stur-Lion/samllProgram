@@ -3,25 +3,147 @@
   <view class="header"></view>
   <view class="formList">
     <view class="formBox">
+
       <view class="formItem">
         <view class="leftTitle">地区：</view>
         <view class="rightChoose">
-
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" range="{{multiArray}}" value="region">
+            <view class="picker">
+              <view class="noselect">
+                {{region[0]}} - {{region[1]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
         </view>
       </view>
       <view class="formItem">
         <view class="leftTitle">运营商：</view>
-        <view class="rightChoose"></view>
+        <view class="rightChoose">
+          <picker bindchange="operatorPickerChange" value="{{index}}" range="{{operator}}">
+            <view class="picker">
+              <view class="noselect">
+                {{operator[0]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
       </view>
       <view class="formItem">
         <view class="leftTitle">IP地址：</view>
-        <view class="rightChoose"></view>
+        <view class="rightChoose">
+          <input placeholder="这是一个input" class="normalInput"/>
+        </view>
       </view>
+      <view class="formItem">
+        <view class="leftTitle">可用带宽：</view>
+        <view class="rightChoose">
+          <picker bindchange="bandwidthPickerChange" value="{{index}}" range="{{bandwidth}}">
+            <view class="picker">
+              <view class="noselect">
+                {{bandwidth[0]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">CPU：</view>
+        <view class="rightChoose">
+          <picker bindchange="cpuPickerChange" value="{{index}}" range="{{cpu}}">
+            <view class="picker">
+              <view class="noselect">
+                {{cpu[0]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">内存：</view>
+        <view class="rightChoose">
+          <picker bindchange="memoryPickerChange" value="{{index}}" range="{{memory}}">
+            <view class="picker">
+              <view class="noselect">
+                {{memory[0]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">磁盘大小：</view>
+        <view class="rightChoose">
+          <picker bindchange="disksizePickerChange" value="{{index}}" range="{{disksize}}">
+            <view class="picker">
+              <view class="noselect">
+                {{disksize[0]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">磁盘类型：</view>
+        <view class="rightChoose">
+          <input placeholder="这是一个input" class="normalInput"/>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">系统类型：</view>
+        <view class="rightChoose">
+          <picker bindchange="systemtypePickerChange" value="{{index}}" range="{{systemtype}}">
+            <view class="picker">
+              <view class="noselect">
+                {{systemtype[0]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="leftTitle">提供80端口：</view>
+        <view class="rightChoose">
+          <radio-group class="radio-group" bindchange="portradioChange">
+            <label class="radio" wx:for="{{port}}">
+              <radio color="black" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">提供IPMI：</view>
+        <view class="rightChoose">
+          <radio-group class="radio-group" bindchange="ipmiradioChange">
+            <label class="radio" wx:for="{{ipmi}}">
+              <radio color="black" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="leftTitle">登录用户：</view>
+        <view class="rightChoose">
+          <input placeholder="这是一个input" class="normalInput"/>
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="leftTitle">登录密码：</view>
+        <view class="rightChoose">
+          <input placeholder="这是一个input" class="normalInput"/>
+        </view>
+      </view>
+
+
+
     </view>
   </view>
-  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
-    <picker-view-column>
-      <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
-    </picker-view-column>
-  </picker-view>
 </view>

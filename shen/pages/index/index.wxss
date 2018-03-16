@@ -14,15 +14,34 @@
 }
 .formList .formBox .formItem{
   border-bottom: 1px solid #e0e0e0;
-  height: 85rpx;
+  height: 100rpx;
   width: 100%;
 }
 .leftTitle{
-  width: 150rpx;
+  width: 180rpx;
   display: inline-block;
-  line-height: 85rpx;
+  line-height: 100rpx;
 }
 .rightChoose{
-  width: 530rpx;
+  width: 500rpx;
   display: inline-block;
+}
+.noselect{
+  display: inline-block;
+  padding: 15rpx 80rpx 15rpx 25rpx;
+  border: 1px solid #dedede;
+  position: relative;
+}
+.noselect image{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 18rpx;
+  right: 20rpx;
+}
+.normalInput{
+  display: inline-block;
+  padding: 10rpx 15rpx;
+  vertical-align: middle;
+  border: 1px solid #dedede;
 }

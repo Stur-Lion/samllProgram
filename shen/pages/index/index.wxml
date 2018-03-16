@@ -16,32 +16,35 @@
           </picker>
         </view>
       </view>
+
       <view class="formItem">
         <view class="leftTitle">运营商：</view>
         <view class="rightChoose">
-          <picker bindchange="operatorPickerChange" value="{{index}}" range="{{operator}}">
+          <picker bindchange="operatorPickerChange" value="{{operator['index']}}" range="{{operator['data']}}">
             <view class="picker">
               <view class="noselect">
-                {{operator[0]}}
+                {{operator['data'][operator['index']]}}
                 <image src="{{logoUrl}}"></image>
               </view>
             </view>
           </picker>
         </view>
       </view>
+      <!--input-->
       <view class="formItem">
         <view class="leftTitle">IP地址：</view>
         <view class="rightChoose">
-          <input placeholder="这是一个input" class="normalInput"/>
+          <input placeholder="请输入您的IP地址" class="normalInput" bindinput="ipInput"/>
         </view>
       </view>
+
       <view class="formItem">
         <view class="leftTitle">可用带宽：</view>
         <view class="rightChoose">
-          <picker bindchange="bandwidthPickerChange" value="{{index}}" range="{{bandwidth}}">
+          <picker bindchange="bandwidthPickerChange" value="{{bandwidth.index}}" range="{{bandwidth.data}}">
             <view class="picker">
               <view class="noselect">
-                {{bandwidth[0]}}
+                {{bandwidth['data'][bandwidth['index']]}}
                 <image src="{{logoUrl}}"></image>
               </view>
             </view>
@@ -51,10 +54,10 @@
       <view class="formItem">
         <view class="leftTitle">CPU：</view>
         <view class="rightChoose">
-          <picker bindchange="cpuPickerChange" value="{{index}}" range="{{cpu}}">
+          <picker bindchange="cpuPickerChange" value="{{cpu.index}}" range="{{cpu.data}}">
             <view class="picker">
               <view class="noselect">
-                {{cpu[0]}}
+                {{cpu['data'][cpu['index']]}}
                 <image src="{{logoUrl}}"></image>
               </view>
             </view>
@@ -64,10 +67,10 @@
       <view class="formItem">
         <view class="leftTitle">内存：</view>
         <view class="rightChoose">
-          <picker bindchange="memoryPickerChange" value="{{index}}" range="{{memory}}">
+          <picker bindchange="memoryPickerChange" value="{{memory.index}}" range="{{memory.data}}">
             <view class="picker">
               <view class="noselect">
-                {{memory[0]}}
+                {{memory['data'][memory['index']]}}
                 <image src="{{logoUrl}}"></image>
               </view>
             </view>
@@ -77,29 +80,10 @@
       <view class="formItem">
         <view class="leftTitle">磁盘大小：</view>
         <view class="rightChoose">
-          <picker bindchange="disksizePickerChange" value="{{index}}" range="{{disksize}}">
+          <picker bindchange="disksizePickerChange" value="{{disksize.index}}" range="{{disksize.data}}">
             <view class="picker">
               <view class="noselect">
-                {{disksize[0]}}
-                <image src="{{logoUrl}}"></image>
-              </view>
-            </view>
-          </picker>
-        </view>
-      </view>
-      <view class="formItem">
-        <view class="leftTitle">磁盘类型：</view>
-        <view class="rightChoose">
-          <input placeholder="这是一个input" class="normalInput"/>
-        </view>
-      </view>
-      <view class="formItem">
-        <view class="leftTitle">系统类型：</view>
-        <view class="rightChoose">
-          <picker bindchange="systemtypePickerChange" value="{{index}}" range="{{systemtype}}">
-            <view class="picker">
-              <view class="noselect">
-                {{systemtype[0]}}
+                {{disksize['data'][disksize['index']]}}
                 <image src="{{logoUrl}}"></image>
               </view>
             </view>
@@ -107,37 +91,62 @@
         </view>
       </view>
 
+      <!--input-->
+      <view class="formItem">
+        <view class="leftTitle">磁盘类型：</view>
+        <view class="rightChoose">
+          <input class="normalInput" bindinput="normalInput"/>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="leftTitle">系统类型：</view>
+        <view class="rightChoose">
+          <picker bindchange="systemtypePickerChange" value="{{systemtype.index}}" range="{{systemtype.data}}">
+            <view class="picker">
+              <view class="noselect">
+                {{systemtype['data'][systemtype['index']]}}
+                <image src="{{logoUrl}}"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <!--radio-->
       <view class="formItem">
         <view class="leftTitle">提供80端口：</view>
         <view class="rightChoose">
           <radio-group class="radio-group" bindchange="portradioChange">
-            <label class="radio" wx:for="{{port}}">
-              <radio color="black" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            <label class="radio" wx:for="{{port['data']}}">
+              <radio color="black" value="{{item.name}}"/>{{item.value}}
             </label>
           </radio-group>
         </view>
       </view>
+      <!--radio-->
       <view class="formItem">
         <view class="leftTitle">提供IPMI：</view>
         <view class="rightChoose">
           <radio-group class="radio-group" bindchange="ipmiradioChange">
-            <label class="radio" wx:for="{{ipmi}}">
-              <radio color="black" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            <label class="radio" wx:for="{{ipmi['data']}}">
+              <radio color="black" value="{{item.name}}"/>{{item.value}}
             </label>
           </radio-group>
         </view>
       </view>
 
+      <!--input-->
       <view class="formItem">
         <view class="leftTitle">登录用户：</view>
         <view class="rightChoose">
-          <input placeholder="这是一个input" class="normalInput"/>
+          <input class="normalInput" bindinput="customerInput"/>
         </view>
       </view>
       <view class="formItem">
         <view class="leftTitle">登录密码：</view>
         <view class="rightChoose">
-          <input placeholder="这是一个input" class="normalInput"/>
+          <input class="normalInput" bindinput="customerPasswardInput"/>
         </view>
       </view>
 

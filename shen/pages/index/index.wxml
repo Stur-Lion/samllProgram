@@ -118,7 +118,7 @@
         <view class="leftTitle">提供80端口：</view>
         <view class="rightChoose">
           <radio-group class="radio-group" bindchange="portradioChange">
-            <label class="radio" wx:for="{{port['data']}}">
+            <label class="radio" wx:for="{{port['data']}}" wx:key="key">
               <radio color="black" value="{{item.name}}"/>{{item.value}}
             </label>
           </radio-group>
@@ -129,7 +129,7 @@
         <view class="leftTitle">提供IPMI：</view>
         <view class="rightChoose">
           <radio-group class="radio-group" bindchange="ipmiradioChange">
-            <label class="radio" wx:for="{{ipmi['data']}}">
+            <label class="radio" wx:for="{{ipmi['data']}}" wx:key="key">
               <radio color="black" value="{{item.name}}"/>{{item.value}}
             </label>
           </radio-group>

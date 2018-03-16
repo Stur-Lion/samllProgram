@@ -41,7 +41,7 @@ Page({
     systemtype:{/*系统类型*/
       data:['WinXP','Win7','Win8','Win10'],
       index:0,
-      value: ''
+      value: 'WinXP'
     },
     port:{/*提供80端口*/
       data: [

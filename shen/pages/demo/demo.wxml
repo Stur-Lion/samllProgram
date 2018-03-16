@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{0}}" range="{{multiArray}}">
+    <view class="picker">
+      <button type="primary">选择时间</button>
+    </view>
+  </picker>
+  <text>{{chooseTime}}</text>
+</view>

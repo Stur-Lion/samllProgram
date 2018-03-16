@@ -45,3 +45,13 @@
   vertical-align: middle;
   border: 1px solid #dedede;
 }
+.submitBox{
+  width: 100%;
+  box-sizing: border-box;
+}
+button{
+  display: block;
+  width: 80%;
+  margin: 40rpx auto;
+  line-height: 40px !important;
+}

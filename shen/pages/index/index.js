@@ -61,11 +61,13 @@ Page({
   operatorPickerChange: function () {
 
   },
-
   portradioChange:function (e) {
     console.log(e);
   },
   ipmiradioChange:function () {
     console.log(e);
+  },
+  submitForm:function () {
+
   }
 })

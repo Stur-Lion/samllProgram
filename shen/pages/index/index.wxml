@@ -1,6 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="header"></view>
   <view class="formList">
     <view class="formBox">
 
@@ -146,4 +145,7 @@
 
     </view>
   </view>
+  <div class="submitBox">
+    <button type="primary" bindtap="submitForm"> 提交 </button>
+  </div>
 </view>

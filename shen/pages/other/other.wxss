@@ -1,0 +1,28 @@
+/**index.wxss**/
+.header{
+  height: 90rpx;
+  width: 100%;
+  background-color: #26C541;
+}
+.formList{
+  padding: 5px 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.formList .formBox{
+  width: 100%;
+}
+.formList .formBox .formItem{
+  border-bottom: 1px solid #e0e0e0;
+  height: 85rpx;
+  width: 100%;
+}
+.leftTitle{
+  width: 150rpx;
+  display: inline-block;
+  line-height: 85rpx;
+}
+.rightChoose{
+  width: 530rpx;
+  display: inline-block;
+}
